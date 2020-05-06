@@ -17,7 +17,6 @@ async function jugar(x)
   console.log(taulerAMapaDeClicks(x));
   p = taulerAMapaDeClicks(x);
   if(mapaClicks[p[0]][p[1]] == 0 && jugador.torn){
-    jugador.torn = false;
     //Tria si és j1 o j2 per ficar cercle o creu en el tauler
     if(jugador.j == 1){
       mercarCreu(x);
@@ -26,14 +25,15 @@ async function jugar(x)
       mercarCercle(x);
       mercarCercleEnElMapaDeClicks(x);
     }
+    //Acaba torn
+    jugador.torn = false;
+
+    //Envia el mapa i el jugador, fent que acabi la partida
+    jMesMapa = [jugador, mapaClicks];
+    socket.emit("tirada", jMesMapa);
+  }else{
+    
   }
-
-  //Acaba torn
-  jugador.torn = false;
-
-  //Envia el mapa i el jugador, fent que acabi la partida
-  jMesMapa = [jugador, mapaClicks];
-  socket.emit("tirada", jMesMapa)
 }
 
 function agafarTauler() 
