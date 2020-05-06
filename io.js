@@ -1,6 +1,6 @@
 const SocketIO = require("socket.io");
 const io = SocketIO();
-const color = require("colors");
+require("colors");
 
 const db = require("./db");
 const normes = require("./normes");
