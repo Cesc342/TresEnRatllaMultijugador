@@ -14,5 +14,11 @@ router.get("/IDE/tauler",async (req,res)=>{
     res.json(db.json.tauler);
 })
 
+//Sarveix per agafar els jugadors connectats en la sala
+router.get("/IDE/sala",async (req,res)=>{
+    await db.agafar();
+    res.json(db.json.sala);
+})
+
 
 module.exports = router;

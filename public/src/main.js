@@ -16,6 +16,17 @@ socket.on("partida",async (mapa)=>{
     jugador.torn = true;
 })
 
-socket.on("guanyador",()=>{
-    
+socket.on("guanyador",(guanyador)=>{
+    if(jugador.j == guanyador){
+        alert("Has guanyat!");
+    }else{
+        alert("Has perdut");
+    }
+    alert(`Ha guanyat el J${guanyador}!`);
+})
+
+socket.on("sala",(sala)=>{
+    if(! (sala.j2.nom == "")){
+        carregarNoms(sala.j1.nom, sala.j2.nom);
+    }
 })

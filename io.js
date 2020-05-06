@@ -28,6 +28,10 @@ async function entrar(socket,nom)
     j++;
     console.log(`${nom.bold} s'ha connectat`.green);
 
+    //Envia la sala els dos jugador perquè carreguin els seus noms
+    socket.emit("sala",db.json.sala);
+    socket.broadcast.emit("sala",db.json.sala);
+
     return Promise.resolve();
 }
 

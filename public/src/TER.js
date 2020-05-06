@@ -32,7 +32,11 @@ async function jugar(x)
     jMesMapa = [jugador, mapaClicks];
     socket.emit("tirada", jMesMapa);
   }else{
-    
+    if(!(mapaClicks[p[0]][p[1]] == 0)){
+      alert("Error: cela ja ocupada, tria un altre");
+    }else if(!jugador.torn){
+      alert(`Error: no es el teu torn ${jugador.nom}`);
+    }
   }
 }
 
@@ -185,3 +189,10 @@ function TOTmapaDeClicksATauler(){
   }
 }
 
+function carregarNoms(nom1, nom2){
+  j1 = document.getElementById("j1");
+  j2 = document.getElementById("j2");
+
+  j1.innerText = nom1;
+  j2.innerText = nom2;
+}
