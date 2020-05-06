@@ -1,0 +1,11 @@
+img{
+    border: 1px solid black;
+    border-radius: 10px;
+    transition: 0.5s border;
+    height: 200px;
+    width: 200px;
+}
+
+img:hover {
+    border: 5px solid black;
+}
