@@ -8,11 +8,11 @@ const io = require("./io");
 const router = require("./router.js");
 
 const HOST = "localhost";
-const PORT = 80;
+const PORT = 3000;
 
 app.use(router);
 
-const server = app.listen(PORT,HOST,()=>{
+const server = app.listen(PORT,()=>{
     console.log(`Servidor funcionant en el host ${HOST.bold} en el port nº ${PORT.toString().bold}`.grey);
 });
 
