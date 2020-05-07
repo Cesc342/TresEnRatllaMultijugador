@@ -14,19 +14,21 @@ socket.on("partida",async (mapa)=>{
     mapaClicks = mapa;
     TOTmapaDeClicksATauler();
     jugador.torn = true;
+    mercarTorn();
 })
 
-socket.on("guanyador",(guanyador)=>{
+socket.on("guanyador",async (guanyador)=>{
+    await agafarMapaClicks();
     if(jugador.j == guanyador){
         alert("Has guanyat!");
     }else{
         alert("Has perdut");
     }
-    alert(`Ha guanyat el J${guanyador}!`);
 })
 
 socket.on("sala",(sala)=>{
     if(! (sala.j2.nom == "")){
         carregarNoms(sala.j1.nom, sala.j2.nom);
+        mercarTorn();
     }
 })

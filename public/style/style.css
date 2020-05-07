@@ -9,3 +9,21 @@ img{
 img:hover {
     border: 5px solid black;
 }
+
+
+#torn{
+    position: fixed;
+    top: 15%;
+    left: 5%;
+    width: 47px;
+    height: 47px;
+    border-radius: 10px;
+    border:3px solid white;
+    transition: background-color 250ms;
+    transition: border 500ms;
+    background-color: grey;
+}
+
+#torn:hover{
+    border: 3px solid black;
+}

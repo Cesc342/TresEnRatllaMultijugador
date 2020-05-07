@@ -9,6 +9,9 @@ mapaClicks = [[0,0,0],[0,0,0],[0,0,0]];
 var tauler = [[null,null,null],[null,null,null],[null,null,null]];
 agafarTauler();
 
+//<div> que marca cuant és el teu torn
+var senyalTorn = document.getElementById("torn");
+
 async function jugar(x)
 {
   //La funcio no funcionara quan l'usuari clici en un lloc que hi ha una creu o cercle
@@ -27,8 +30,8 @@ async function jugar(x)
     }
     //Acaba torn
     jugador.torn = false;
-
-    //Envia el mapa i el jugador, fent que acabi la partida
+    mercarTorn();
+    //Envia el mapa i el jugador, fent que acabi el torn
     jMesMapa = [jugador, mapaClicks];
     socket.emit("tirada", jMesMapa);
   }else{
@@ -189,10 +192,21 @@ function TOTmapaDeClicksATauler(){
   }
 }
 
-function carregarNoms(nom1, nom2){
+function carregarNoms(nom1, nom2)
+{
   j1 = document.getElementById("j1");
   j2 = document.getElementById("j2");
 
   j1.innerText = nom1;
   j2.innerText = nom2;
+}
+
+
+function mercarTorn()
+{
+  if(jugador.torn){
+    senyalTorn.style.background = "green";
+  }else{
+    senyalTorn.style.background = "red";
+  }
 }

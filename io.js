@@ -50,9 +50,9 @@ async function tirada(socket,jugador,mapa)
     if(guanyador != 0){
         socket.emit("guanyador",guanyador);
         socket.broadcast.emit("guanyador",guanyador);
-    }else{
-        socket.broadcast.emit("partida", mapa);
     }
+
+    socket.broadcast.emit("partida", mapa);
 
     //Guarda la base de dades
     await db.guardar();
