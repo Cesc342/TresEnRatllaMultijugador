@@ -192,6 +192,7 @@ function TOTmapaDeClicksATauler(){
   }
 }
 
+//Fica els noms en el <h1> de " VS "
 function carregarNoms(nom1, nom2)
 {
   j1 = document.getElementById("j1");
@@ -201,7 +202,7 @@ function carregarNoms(nom1, nom2)
   j2.innerText = nom2;
 }
 
-
+//Marca el torn depenen directamen del $jugador -> torn
 function mercarTorn()
 {
   if(jugador.torn){
