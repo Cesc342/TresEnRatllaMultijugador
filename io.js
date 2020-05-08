@@ -75,10 +75,12 @@ io.on("connection",async (socket)=>{
     })
 
     socket.on("disconnect",async ()=>{
-        await db.reiniciar();
-        j = 1;
-        console.table(db.json.sala);
-        console.log("S'ha desconectat")
+        if(j >= 3){
+            await db.reiniciar();
+            j = 1;
+            console.table(db.json.sala);
+            console.log("S'ha desconectat")
+        }
     })
 })
 
